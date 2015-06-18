@@ -1,0 +1,23 @@
+<%= image_tag @artist.image.url(:thumb) %>
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artist.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @artist.location %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @artist.rating %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

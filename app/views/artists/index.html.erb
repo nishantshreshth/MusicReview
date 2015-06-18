@@ -1,0 +1,39 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h4>Your Favourite Artist Reviewed</h4>
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
+        <p>List Your Favourite Artist and Start Rating</p></div>
+      <div class="col-sm-4 col-md-3">
+        <p><%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary btn-lg" %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row" style="margin: 5px;">
+    <% @artists.each do |artist| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to (image_tag artist.image.url(:medium)), artist %>
+          <br>
+          <div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+              <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="home"><%= artist.description %></div>
+              <div role="tabpanel" class="tab-pane" id="profile">...</div>
+              <div role="tabpanel" class="tab-pane" id="messages">...</div>
+            </div>
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>
+
+
