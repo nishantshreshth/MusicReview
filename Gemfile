@@ -51,3 +51,7 @@ gem 'paperclip', '~> 4.2.1'
 #materialize css
 gem 'bootstrap-sass', '~> 3.3.5'
 
+
+
+gem 'liquid'
+

@@ -17,4 +17,9 @@
 //= require_tree .
 $( document ).ready(function(){
 	$(".button-collapse").sideNav();
+	
 	})
+
+$('#myModal').on('shown.bs.modal', function () {
+ 			 $('#myInput').focus()
+		})

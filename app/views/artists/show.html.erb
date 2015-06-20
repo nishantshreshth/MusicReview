@@ -1,23 +1,32 @@
-<%= image_tag @artist.image.url(:thumb) %>
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @artist.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @artist.location %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @artist.rating %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+  	<div class="panel-heading">
+        <blockquote class="col-md-offset-1" style="text-transform: uppercase;"><%= @artist.name %> </blockquote>
+      </div>
+    <div class="panel-body col-md-offset-1">
+      
+      <div class="row">
+      		<div class="col-md-6">
+      			<div class="thumbnail">
+					<img <%= image_tag @artist.image.url(:medium) %>
+				</div>
+				<div class="caption" style="margin-bottom: 10px;">
+					<%= @artist.rating %>
+					<p>
+					  <strong>Location:</strong>
+					  <%= @artist.location %>
+					</p>
+					
+				</div>
+			</div>
+			<p><%= @artist.description %></p>
+			</div>
+			</div>	
+      </div>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
+</div>
+</div>
+</div>
+</div>
