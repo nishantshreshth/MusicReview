@@ -11,7 +11,12 @@
 					<img <%= image_tag @artist.image.url(:medium) %>
 				</div>
 				<div class="caption" style="margin-bottom: 10px;">
-					<%= @artist.rating %>
+					<strong>Rating: </strong>						
+					<div class="progress">
+					  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= @avg_rating*10 %>%">
+					    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">  <%= @avg_rating %>/10</span>
+					  </div>
+					</div>
 					<p>
 					  <strong>Location:</strong>
 					  <%= @artist.location %>
@@ -29,4 +34,54 @@
 </div>
 </div>
 </div>
+<div class="panel">
+	<div class="panel-body col-md-offset-1">
+		<h2>Reviews</h2>
+		<% @artist.reviews.each do |r| %>
+	  		<p>
+	   		 <blockquote><%= r.email %> says:</blockquote>
+	   		</p>
+	   		<div class="row">
+	   			<div class="col-md-4">
+	   				<div class="progress ">
+					  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= r.rating*10 %>%">
+					    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">  <%= r.rating %>/10</span>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+		   		 <% if user_signed_in? %>
+			   		 <% if r.user_id ==  current_user.id or @artist.user_id == current_user.id %>
+			   		 	<%= link_to 'Delete', [r.artist, r],
+		               method: :delete,
+		               data: { confirm: 'Are you sure?' } %>
+		            <%end %>
+		        <% end %>
+		        </div>
+	        </div>
+	        <div class="row">
+	  		 <p>
+	    		<strong>Comment:</strong>
+	    		<%= r.comment%>
+	 		 </p> 
+	 		 </div>
+	 		 <hr> 
+		<% end %>
+		<h2>Add Review:</h2>
+		<%= form_for([@artist, @artist.reviews.build]) do |f| %>
+		  <div class="row">
+			  <p class="col-md-8">
+			    <%= f.label :rating %>
+	    		<%= f.range_field :rating, :min=>0, :max=>10, :class=>"slide", :id=>"slider7"%><br/>
+			  </p>
+			</div>
+
+		  <p>
+		    <%= f.label :comment %><br>
+		    <%= f.text_area :comment, class:"form-control review-box"%>
+		  </p>
+		  <p>
+		    <%= f.submit "Add Review", class:"btn btn-primary btn-lg"%>
+		  </p>
+<% end %>
 </div>

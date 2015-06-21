@@ -30,7 +30,7 @@
 	            <li>Email: <%= current_user.email%></li>
 	            <li><%= link_to "Add New Artist", new_artist_path %></li>
 	            <li><%= link_to "Change Password", edit_user_registration_path%></li>
-	            <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+	            <li><%= link_to "Sign Out", destroy_user_session_path,  method: :delete %></li>
 	          </ul>
         	</li>
         <% else %>
