@@ -14,12 +14,17 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require summernote
 //= require_tree .
+
+
 $( document ).ready(function(){
-	$(".button-collapse").sideNav();
-	
-	})
+	$(".button-collapse").sideNav();	
+})
+
 
 $('#myModal').on('shown.bs.modal', function () {
  			 $('#myInput').focus()
 		})
+

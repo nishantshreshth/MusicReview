@@ -26,11 +26,20 @@
 			</div>
 			<p><%= @artist.description %></p>
 			</div>
-			</div>	
-      </div>
+			<div class="col-md-2 col-md-offset-11">
+			<%if user_signed_in? %>
+				<%if @artist.user_id == current_user.id %>
+					<%= link_to '', edit_artist_path(@artist), class:"glyphicon glyphicon-pencil" %> |
+					<%= link_to '', artists_path(@artis), class:"glyphicon glyphicon-remove",
+			               method: :delete,
+			               data: { confirm: 'Are you sure?' } %>
+			    <%end %>
+			<% end %>
+			</div>
+			</div>
+	      </div>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+
 </div>
 </div>
 </div>
@@ -49,10 +58,10 @@
 					  </div>
 					</div>
 				</div>
-				<div class="col-md-4 col-md-offset-4">
+				<div class="col-md-2 col-md-offset-6">
 		   		 <% if user_signed_in? %>
 			   		 <% if r.user_id ==  current_user.id or @artist.user_id == current_user.id %>
-			   		 	<%= link_to 'Delete', [r.artist, r],
+			   		 <%= link_to '', [r.artist, r], class:"glyphicon glyphicon-remove",
 		               method: :delete,
 		               data: { confirm: 'Are you sure?' } %>
 		            <%end %>

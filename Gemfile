@@ -55,3 +55,6 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'liquid'
 
+##EDITOR
+gem 'summernote-rails'
+gem 'font-awesome-rails' 

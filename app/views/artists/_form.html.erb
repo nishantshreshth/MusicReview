@@ -1,3 +1,9 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+</script>
+
 <%= form_for @artist, html: { multipart: true } do |f| %>
   <% if @artist.errors.any? %>
     <div id="error_explanation">
@@ -10,27 +16,23 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name  %><br>
+    <%= f.text_field :name, autofocus: true, type:"text",class:"form-control", placeholder:"Artist/Band Name"%>
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image%>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, id:'summernote', class:'form-control', autofocus: true, type:"text", placeholder:"Write About Artist/Band"%>
   </div>
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, autofocus: true, type:"text",class:"form-control", placeholder:"Location" %>
   </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
-  </div>
+  <br/>
   <center>
-    <%= f.submit :class => "btn waves-effect waves-light", :type=> "submit" %></center>
+    <%= f.submit  "Add Artist", class:"btn btn-primary btn-lg" %></center>
 <% end %>

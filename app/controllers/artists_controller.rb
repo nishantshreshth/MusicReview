@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
     @avg_rating=8
     @reviews = Review.where(artist_id: @artist.id).order("created_at DESC")
     if @reviews.blank?
-      @avg_rating = 0
+      @avg_rating = 5
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
