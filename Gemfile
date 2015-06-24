@@ -58,3 +58,10 @@ gem 'liquid'
 ##EDITOR
 gem 'summernote-rails'
 gem 'font-awesome-rails' 
+
+
+##FOR SLIDER
+gem 'bootstrap-slider-rails'
+
+##BOOTSTRAP FORM
+gem 'bootstrap_form'

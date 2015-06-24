@@ -36,6 +36,9 @@ GEM
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap-slider-rails (4.8.1)
+      railties (>= 3.2, < 5.0)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -145,6 +148,8 @@ PLATFORMS
 DEPENDENCIES
   angularjs-rails (~> 1.4.0)
   bootstrap-sass (~> 3.3.5)
+  bootstrap-slider-rails
+  bootstrap_form
   coffee-rails (~> 4.0.0)
   devise (~> 3.5.1)
   font-awesome-rails

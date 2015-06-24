@@ -20,15 +20,11 @@
           <div>
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab">Description</a></li>
-              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Ratings</a></li>
-              <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="desc"><%= truncate( artist.description, length: 175 ) %><%= link_to "Read More", artist %></div>
-              <div role="tabpanel" class="tab-pane" id="profile">...</div>
-              <div role="tabpanel" class="tab-pane" id="messages">...</div>
+              <div role="tabpanel" class="tab-pane active" id="desc"><%= truncate( artist.description, length: 162 ) %><br/><%= link_to "Read More", artist %></div>
             </div>
             </div>
           </div>

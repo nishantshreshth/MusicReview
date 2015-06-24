@@ -16,12 +16,12 @@
 //= require turbolinks
 //= require bootstrap
 //= require summernote
+//= require bootstrap-slider
 //= require_tree .
-
-
-$( document ).ready(function(){
-	$(".button-collapse").sideNav();	
-})
+$(document).ready(function(){
+        $('.dropdown-toggle').dropdown();
+        $('#summernote').summernote();
+    });
 
 
 $('#myModal').on('shown.bs.modal', function () {
