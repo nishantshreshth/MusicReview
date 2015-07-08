@@ -13,18 +13,20 @@
 
 <div class="row" style="margin: 5px;">
     <% @artists.each do |artist| %>
+      <% @description= artist.description.html_safe %>
       <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
+        <div class="thumbnail" style="height: 60%;">
           <%= link_to (image_tag artist.image.url(:medium)), artist %>
           <br>
           <div>
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab">Description</a></li>
+              <li role="presentation" class="active"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab"><strong><%= artist.name %></strong></a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="desc"><%= truncate( artist.description, length: 162 ) %><br/><%= link_to "Read More", artist %></div>
+              
+              <div role="tabpanel" class="tab-pane active" id="desc"><%= truncate(strip_links(strip_tags(artist.description.html_safe)), length: 162, escape: false ) %><br/><%= link_to "Read More", artist %></div>
             </div>
             </div>
           </div>

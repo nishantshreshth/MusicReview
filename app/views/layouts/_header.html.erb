@@ -33,7 +33,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MY Account <span class="caret"></span></a>
 
             <ul class="dropdown-menu">
-              <li>Email: <%= current_user.email%></li>
+              <li><a href="#">Email: <%= current_user.email%></a></li>
               <li><%= link_to "Add New Artist", new_artist_path %></li>
               <li><%= link_to "Change Password", edit_user_registration_path%></li>
               <li><%= link_to "Sign Out", destroy_user_session_path,  method: :delete  %></li>

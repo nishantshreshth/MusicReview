@@ -24,13 +24,13 @@
 					
 				</div>
 			</div>
-			<p><%= @artist.description %></p>
+			<p><%= @artist.description.html_safe %></p>
 			</div>
 			<div class="col-md-2 col-md-offset-11">
 			<%if user_signed_in? %>
 				<%if @artist.user_id == current_user.id %>
 					<%= link_to '', edit_artist_path(@artist), class:"glyphicon glyphicon-pencil" %> |
-					<%= link_to '', artists_path(@artis), class:"glyphicon glyphicon-remove",
+					<%= link_to '', artist_path(@artist), class:"glyphicon glyphicon-remove",
 			               method: :delete,
 			               data: { confirm: 'Are you sure?' } %>
 			    <%end %>
@@ -81,7 +81,7 @@
 		  <div class="row">
 			  <p class="col-md-8">
 			    <%= f.label :rating %>
-	    		<%= f.text_field :rating, :min=>0, :max=>10, :id=>"slide"%><br/>
+	    		<%= f.range_field :rating, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%><br/>
 			  </p>
 			</div>
 
